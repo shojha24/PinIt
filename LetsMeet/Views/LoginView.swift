@@ -130,18 +130,18 @@ struct LoginView: View {
                                     .foregroundColor(.black.opacity(0.5))
                                     .font(.footnote)
                                 
-                                Button(action: {}) {
-                                    NavigationLink("Sign Up", destination: RegisterView())
+                                NavigationLink(destination: RegisterView()) {
+                                    Text("Sign Up")
                                         .fontWeight(.semibold)
                                         .frame(maxWidth: .infinity)
                                         .padding()
-                                        .background(Color.white)
                                         .foregroundColor(Color.letsOrange)
-                                        .cornerRadius(8)
+                                        .background(Color.white)
                                         .overlay(
                                             RoundedRectangle(cornerRadius: 10)
-                                                .stroke(Color(Color.letsOrange), lineWidth: 3)
+                                                .stroke(Color.letsOrange, lineWidth: 6)
                                         )
+                                        .cornerRadius(10)
                                 }
                                 
                                 Text("Made by Sharabh Ojha")
