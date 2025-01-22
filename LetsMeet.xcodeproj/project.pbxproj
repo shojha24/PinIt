@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A01090972D40729F00C30B75 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = A01090962D40729900C30B75 /* .gitignore */; };
 		A0521D552D3CE9AD005EC08F /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = A0521D542D3CE9AD005EC08F /* FirebaseAuth */; };
 		A0521D572D3CE9AD005EC08F /* FirebaseAuthCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = A0521D562D3CE9AD005EC08F /* FirebaseAuthCombine-Community */; };
 		A0521D592D3CE9AD005EC08F /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = A0521D582D3CE9AD005EC08F /* FirebaseFirestore */; };
@@ -14,6 +15,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A01090962D40729900C30B75 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		A0521D422D3CE919005EC08F /* LetsMeet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LetsMeet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -43,6 +45,7 @@
 		A0521D392D3CE919005EC08F = {
 			isa = PBXGroup;
 			children = (
+				A01090962D40729900C30B75 /* .gitignore */,
 				A0521D442D3CE919005EC08F /* LetsMeet */,
 				A0521D432D3CE919005EC08F /* Products */,
 			);
@@ -127,6 +130,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A01090972D40729F00C30B75 /* .gitignore in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
