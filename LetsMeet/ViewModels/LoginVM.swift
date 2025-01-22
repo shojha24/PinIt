@@ -25,7 +25,7 @@ class LoginVM : ObservableObject {
         // Try login
         Auth.auth().signIn(withEmail: email, password: pwd)
         Auth.auth().signIn(withEmail: email, password: pwd) { authResult, error in
-            if let error = error {
+            if error != nil {
                 // Handle the error
                 self.errorMessage = "Sign in unsuccessful. Please try again."
                 return
