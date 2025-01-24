@@ -160,12 +160,11 @@ struct RegisterView: View {
                             Text("Back")
                                 .foregroundColor(.letsOrange)
                         }
-                        .padding(4)
+                        .padding(6)
                         .background(
                             RoundedRectangle(cornerRadius: 12)
                                 .fill(Color.white)
                         )
-                        
                     }
                 }
             }

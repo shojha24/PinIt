@@ -12,8 +12,8 @@ struct User: Codable {
     let name: String
     let email: String
     let joined: TimeInterval
-    var pfp: String?
-    var bio: String?
+    var pfp: String = ""
+    var bio: String = ""
     var myEvents: [String] = []
     var invitedEvents: [String] = []
 }

@@ -8,9 +8,15 @@
 import SwiftUI
 
 struct MainView: View {
+    @StateObject var viewModel = MainVM()
+    
     var body: some View {
-        
-        LoginView()
+        if viewModel.isSignedIn, !viewModel.currentUserId.isEmpty {
+            //signed in
+            ListingsView()
+        } else {
+            LoginView()
+        }
     }
 }
 
