@@ -1,5 +1,5 @@
 {
-  "originHash" : "cb99ce1f3de5d41c4edc4ecea2754fb861b102f5d30c26509439bfb892fbb10e",
+  "originHash" : "c1cb8da92dc64d26bba72764b6a579e9ac9c61bcdb78620b2ffb463f6b3ebb4b",
   "pins" : [
     {
       "identity" : "abseil-cpp-binary",
@@ -101,6 +101,15 @@
       }
     },
     {
+      "identity" : "mapitempicker",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/FiveSheepCo/MapItemPicker",
+      "state" : {
+        "revision" : "85bde6e0a0fc5f9d293da09da9220b0bf38c06f1",
+        "version" : "1.0.5"
+      }
+    },
+    {
       "identity" : "nanopb",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/firebase/nanopb.git",
@@ -116,6 +125,15 @@
       "state" : {
         "revision" : "540318ecedd63d883069ae7f1ed811a2df00b6ac",
         "version" : "2.4.0"
+      }
+    },
+    {
+      "identity" : "schafkit",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Quintschaf/SchafKit.git",
+      "state" : {
+        "revision" : "543b2d8dba7069c638e526d71b0701a730c09994",
+        "version" : "1.3.0"
       }
     },
     {
