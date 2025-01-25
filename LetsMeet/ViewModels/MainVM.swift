@@ -10,6 +10,7 @@ import Foundation
 
 class MainVM : ObservableObject {
     @Published var currentUserId: String = ""
+    @Published var currTab: Int = 0
     private var handler: AuthStateDidChangeListenerHandle?
     
     init() {

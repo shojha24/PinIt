@@ -6,3 +6,7 @@
 //
 
 import Foundation
+import FirebaseAuth
+
+class ListingsVM : ObservableObject {
+}

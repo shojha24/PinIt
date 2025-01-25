@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		A01090972D40729F00C30B75 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = A01090962D40729900C30B75 /* .gitignore */; };
+		A01090D12D448F7E00C30B75 /* LocationPicker in Frameworks */ = {isa = PBXBuildFile; productRef = A01090D02D448F7E00C30B75 /* LocationPicker */; };
 		A0521D552D3CE9AD005EC08F /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = A0521D542D3CE9AD005EC08F /* FirebaseAuth */; };
 		A0521D572D3CE9AD005EC08F /* FirebaseAuthCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = A0521D562D3CE9AD005EC08F /* FirebaseAuthCombine-Community */; };
 		A0521D592D3CE9AD005EC08F /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = A0521D582D3CE9AD005EC08F /* FirebaseFirestore */; };
@@ -34,6 +35,7 @@
 			files = (
 				A0521D552D3CE9AD005EC08F /* FirebaseAuth in Frameworks */,
 				A0521D5B2D3CE9AD005EC08F /* FirebaseFirestoreCombine-Community in Frameworks */,
+				A01090D12D448F7E00C30B75 /* LocationPicker in Frameworks */,
 				A0521D572D3CE9AD005EC08F /* FirebaseAuthCombine-Community in Frameworks */,
 				A0521D592D3CE9AD005EC08F /* FirebaseFirestore in Frameworks */,
 			);
@@ -83,6 +85,7 @@
 				A0521D562D3CE9AD005EC08F /* FirebaseAuthCombine-Community */,
 				A0521D582D3CE9AD005EC08F /* FirebaseFirestore */,
 				A0521D5A2D3CE9AD005EC08F /* FirebaseFirestoreCombine-Community */,
+				A01090D02D448F7E00C30B75 /* LocationPicker */,
 			);
 			productName = LetsMeet;
 			productReference = A0521D422D3CE919005EC08F /* LetsMeet.app */;
@@ -114,6 +117,7 @@
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
 				A0521D532D3CE9AD005EC08F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				A01090CF2D448F7E00C30B75 /* XCRemoteSwiftPackageReference "LocationPickerForSwiftUI" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = A0521D432D3CE919005EC08F /* Products */;
@@ -348,6 +352,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		A01090CF2D448F7E00C30B75 /* XCRemoteSwiftPackageReference "LocationPickerForSwiftUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/alessiorubicini/LocationPickerForSwiftUI";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.1.2;
+			};
+		};
 		A0521D532D3CE9AD005EC08F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
@@ -359,6 +371,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		A01090D02D448F7E00C30B75 /* LocationPicker */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A01090CF2D448F7E00C30B75 /* XCRemoteSwiftPackageReference "LocationPickerForSwiftUI" */;
+			productName = LocationPicker;
+		};
 		A0521D542D3CE9AD005EC08F /* FirebaseAuth */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = A0521D532D3CE9AD005EC08F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
