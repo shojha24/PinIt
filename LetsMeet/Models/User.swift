@@ -16,5 +16,6 @@ struct User: Codable {
     var bio: String = ""
     var myEvents: [String] = []
     var invitedEvents: [String] = []
+    var chosenEvents: [String] = []
     var isOrg: Bool = false
 }

@@ -54,7 +54,7 @@ struct AddListingView: View {
                             .tint(.letsOrange)
                     }
                     
-                    if (viewModel.limitedCap) {
+                    if (viewModel.visible && viewModel.limitedCap) {
                         TextField("Number of spots available", text: $viewModel.capacity)
                                     .keyboardType(.decimalPad)
                     }
@@ -62,6 +62,16 @@ struct AddListingView: View {
                     DatePicker("Starts:", selection: $viewModel.startDate, in: Date()...)
                         .datePickerStyle(CompactDatePickerStyle())
                         .tint(.letsOrange)
+                    
+                    Toggle("Ending date/time?", isOn: $viewModel.endRequired)
+                        .toggleStyle(.switch)
+                        .tint(.letsOrange)
+                    
+                    if (viewModel.endRequired) {
+                        DatePicker("Ends:", selection: $viewModel.endDate, in: Date()...)
+                            .datePickerStyle(CompactDatePickerStyle())
+                            .tint(.letsOrange)
+                    }
                     
                     Text("Add a pin on the event location. Drag to move, pinch to zoom.")
                         .frame(maxWidth: .infinity, maxHeight: 70)
@@ -79,7 +89,7 @@ struct AddListingView: View {
                             }
                         }
                             .frame(width: 350, height: 350)
-                            
+                            .cornerRadius(25)
                             .onTapGesture { position in
                                 if let coordinate = proxy.convert(position, from: .local) {
                                     print("Tapped at \(coordinate)")

@@ -13,6 +13,8 @@ import MapKit
 class AddListingVM : ObservableObject {
     @Published var title : String = "" // done
     @Published var startDate : Date = Date() // done
+    @Published var endRequired : Bool = false
+    @Published var endDate : Date = Date() 
     @Published var description : String = "" // done
     @Published var location : CLLocationCoordinate2D = CLLocationCoordinate2D()
     @Published var visible : Bool = true // done
@@ -34,17 +36,32 @@ class AddListingVM : ObservableObject {
             return
         }
         
+        if (!visible) {
+            limitedCap = false
+        }
+        
+        if (!limitedCap) {
+            capacity = ""
+        }
+        
+        if (!endRequired) {
+            endDate = Date()
+        }
+        
         let newId = UUID().uuidString
         let newListing = ListingItem(
             id: newId,
             title: title,
             startDate: startDate,
+            ends: endRequired,
+            endDate: endDate,
             description: description,
             latitude: location.latitude,
             longitude: location.longitude,
             profile: uId,
             visible: visible,
             capacity: capacity,
+            spotsLeft: capacity,
             limitedCap: limitedCap
         )
         
@@ -62,12 +79,35 @@ class AddListingVM : ObservableObject {
     }
     
     var canSave: Bool {
+        errorMessage = ""
+        
         guard !title.trimmingCharacters(in: .whitespaces).isEmpty, !description.trimmingCharacters(in: .whitespaces).isEmpty, !(location.latitude == CLLocationCoordinate2D().latitude), !(location.longitude == CLLocationCoordinate2D().longitude) else {
             errorMessage = "Please fill in all fields"
             return false
         }
         
-        errorMessage = ""
+        guard !endRequired || (endDate >= startDate) else {
+            errorMessage = "End date must be after start date"
+            return false
+        }
+        
+        if visible && limitedCap {
+            if capacity.trimmingCharacters(in: .whitespaces).isEmpty {
+                errorMessage = "Capacity is required"
+                return false
+            }
+                
+            if let capacityValue = Int(capacity) {
+                if capacityValue <= 0 {
+                    errorMessage = "Capacity must be a positive number"
+                    return false
+                }
+            } else {
+                errorMessage = "Capacity must be a number"
+                return false
+                }
+        }
+        
         return true
     }
 }
