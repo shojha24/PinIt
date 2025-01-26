@@ -6,13 +6,13 @@
 //
 
 import SwiftUI
+import FirebaseFirestore
 
 struct ListingsView: View {
     @StateObject var viewModel = ListingsVM()
-    private let userId: String
     
     init(userId: String) {
-        self.userId = userId
+        //
     }
     
     var body: some View {
@@ -66,7 +66,7 @@ struct ListingsView: View {
                 
                 ToolbarItem(placement: .topBarTrailing) {
                     Button(action: {
-                        //
+                        viewModel.showingAddListing = true
                     }) {
                         HStack {
                             Image(systemName: "plus.circle.fill")
@@ -87,6 +87,9 @@ struct ListingsView: View {
                 
             }
             .navigationTitle("All Listings")
+            .sheet(isPresented: $viewModel.showingAddListing) {
+                AddListingView(addListingPresented: $viewModel.showingAddListing)
+            }
         }
     }
 }

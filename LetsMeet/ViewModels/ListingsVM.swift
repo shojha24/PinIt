@@ -6,3 +6,12 @@
 //
 
 import Foundation
+
+class ListingsVM : ObservableObject {
+    @Published var showingAddListing = false
+    
+    init () {
+        
+    }
+    
+}

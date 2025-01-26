@@ -6,20 +6,69 @@
 //
 
 import Foundation
+import FirebaseFirestore
+import FirebaseAuth
 import MapKit
 
 class AddListingVM : ObservableObject {
     @Published var title : String = "" // done
-    @Published var date : Date = Date() // done
+    @Published var startDate : Date = Date() // done
     @Published var description : String = "" // done
     @Published var location : CLLocationCoordinate2D = CLLocationCoordinate2D()
-    @Published var profile : String = "" // done
     @Published var visible : Bool = true // done
-    @Published var capacity : String = ""
-    @Published var unlimitedCap : Bool = true
+    @Published var capacity : String = "" // done
+    @Published var limitedCap : Bool = false // done
+    @Published var errorMessage : String = ""
+    @Published var showAlert : Bool = false
     
     init () {
         
+    }
+    
+    func save() {
+        guard canSave else {
+            return
+        }
+        
+        guard let uId = Auth.auth().currentUser?.uid else {
+            return
+        }
+        
+        let newId = UUID().uuidString
+        let newListing = ListingItem(
+            id: newId,
+            title: title,
+            startDate: startDate,
+            description: description,
+            latitude: location.latitude,
+            longitude: location.longitude,
+            profile: uId,
+            visible: visible,
+            capacity: capacity,
+            limitedCap: limitedCap
+        )
+        
+        let db = Firestore.firestore()
+        db.collection("events")
+            .document(newId)
+            .setData(newListing.asDictionary())
+        
+        let userRef = db.collection("users").document(uId)
+        
+        userRef.updateData([
+            "myEvents": FieldValue.arrayUnion([newId])
+        ])
+        
+    }
+    
+    var canSave: Bool {
+        guard !title.trimmingCharacters(in: .whitespaces).isEmpty, !description.trimmingCharacters(in: .whitespaces).isEmpty, !(location.latitude == CLLocationCoordinate2D().latitude), !(location.longitude == CLLocationCoordinate2D().longitude) else {
+            errorMessage = "Please fill in all fields"
+            return false
+        }
+        
+        errorMessage = ""
+        return true
     }
 }
 
