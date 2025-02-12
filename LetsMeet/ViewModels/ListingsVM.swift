@@ -10,8 +10,10 @@ import Foundation
 class ListingsVM : ObservableObject {
     @Published var showingAddListing = false
     
-    init () {
-        
+    private let userId: String
+    
+    init(userId: String) {
+        self.userId = userId
     }
     
 }

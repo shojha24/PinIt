@@ -7,18 +7,32 @@
 
 import SwiftUI
 import FirebaseFirestore
+import MapKit
 
 struct ListingsView: View {
-    @StateObject var viewModel = ListingsVM()
+    @StateObject var viewModel: ListingsVM
+    @FirestoreQuery var items: [ListingItem]
     
     init(userId: String) {
-        //
+        self._items = FirestoreQuery(collectionPath: "events")
+        
+        self._viewModel = StateObject(wrappedValue: ListingsVM(userId: userId))
     }
     
     var body: some View {
         NavigationView {
             VStack {
-                
+                if items.isEmpty {
+                    ProgressView()
+                } else {
+                    List(items) { item in
+                        //Text(item.title)
+                        //    .foregroundColor(.letsOrange)
+                        ListingItemView(title: item.title, username: item.profile, address: "test", startDate: Date(timeIntervalSince1970: item.startDate), endDate: Date(timeIntervalSince1970: item.endDate))
+                    }
+                    .listStyle(PlainListStyle())
+                }
+
             }
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {

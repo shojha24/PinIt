@@ -11,9 +11,9 @@ import MapKit
 struct ListingItem: Codable, Identifiable {
     let id: String
     let title : String
-    let startDate : Date
+    let startDate : Double
     let ends : Bool
-    let endDate : Date
+    let endDate : Double
     let description : String
     let latitude : Double
     let longitude : Double
@@ -22,4 +22,6 @@ struct ListingItem: Codable, Identifiable {
     let capacity : String
     let spotsLeft : String
     let limitedCap : Bool
+    var signUpList: [String] = []
+    var inviteList: [String] = []
 }

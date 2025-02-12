@@ -52,9 +52,9 @@ class AddListingVM : ObservableObject {
         let newListing = ListingItem(
             id: newId,
             title: title,
-            startDate: startDate,
+            startDate: Double(startDate.timeIntervalSince1970),
             ends: endRequired,
-            endDate: endDate,
+            endDate: Double(endDate.timeIntervalSince1970),
             description: description,
             latitude: location.latitude,
             longitude: location.longitude,
